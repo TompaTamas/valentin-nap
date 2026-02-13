@@ -49,7 +49,7 @@ function createHeart() {
 
     heartsContainer.appendChild(heart);
 
-    // Remove heart after animation
+    // Remove heart after animation completes
     setTimeout(() => {
         if (heart.parentNode) {
             heart.remove();
@@ -73,7 +73,6 @@ function startHearts() {
 // ========== PANEL LOGIC ==========
 const surpriseBtn = document.getElementById('surpriseBtn');
 const overlay = document.getElementById('overlay');
-const panel = document.getElementById('panel');
 const closeBtn = document.getElementById('closeBtn');
 const messageEl = document.getElementById('message');
 
@@ -90,10 +89,10 @@ function getRandomMessage() {
 
 function openPanel() {
     messageEl.textContent = getRandomMessage();
-    // Reset animations by removing and re-adding active class
+    // Remove active class first to reset animations
     overlay.classList.remove('active');
 
-    // Force reflow to restart animations
+    // Force reflow to restart CSS animations
     void overlay.offsetWidth;
 
     overlay.classList.add('active');
@@ -112,7 +111,7 @@ function closePanel() {
 surpriseBtn.addEventListener('click', openPanel);
 closeBtn.addEventListener('click', closePanel);
 
-// Close on overlay click (but not panel click)
+// Close on overlay background click (not panel itself)
 overlay.addEventListener('click', (e) => {
     if (e.target === overlay) {
         closePanel();
@@ -126,7 +125,7 @@ document.addEventListener('keydown', (e) => {
     }
 });
 
-// Prevent scroll on body when panel is open (mobile)
+// Prevent body scroll when panel is open on mobile
 overlay.addEventListener('touchmove', (e) => {
     if (e.target === overlay) {
         e.preventDefault();

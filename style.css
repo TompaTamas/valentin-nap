@@ -285,76 +285,43 @@ body {
     text-align: center;
 }
 
-/* ========== SVG TULIP BOUQUET ========== */
+/* ========== TULIP BOUQUET IMAGE ========== */
 .bouquet {
     position: relative;
-    width: 262px;
-    height: 306px;
+    width: 240px;
     margin: 0 auto 1.5rem;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.bouquet svg {
+.tulip-img {
     width: 100%;
     height: auto;
-    max-width: 262px;
-    overflow: visible;
+    max-width: 240px;
+    border-radius: 12px;
+    filter: drop-shadow(0 8px 24px rgba(120, 60, 140, 0.35));
 }
 
-/* Hide the stemEnd paths like the original */
-.stemEnd1, .stemEnd2, .stemEnd3, .stemEnd4 {
-    visibility: hidden;
-}
-
-/* Tulip grow-in animation when panel opens */
-.overlay.active #tulip1 {
-    animation: tulipAppear 0.8s ease-out 0.1s both;
-}
-.overlay.active #tulip2 {
-    animation: tulipAppear 0.8s ease-out 0.25s both;
-}
-.overlay.active #tulip3 {
-    animation: tulipAppear 0.8s ease-out 0.4s both;
-}
-.overlay.active #tulip4 {
-    animation: tulipAppear 0.8s ease-out 0.55s both;
+/* Grow-in animation when panel opens */
+.overlay.active .tulip-img {
+    animation: tulipAppear 0.9s cubic-bezier(0.34, 1.56, 0.64, 1) 0.15s both;
 }
 
 @keyframes tulipAppear {
     0% {
         opacity: 0;
-        transform: translateY(40px) scale(0.7);
-    }
-    60% {
-        opacity: 1;
-        transform: translateY(-5px) scale(1.03);
+        transform: scale(0.5) translateY(30px);
     }
     100% {
         opacity: 1;
-        transform: translateY(0) scale(1);
+        transform: scale(1) translateY(0);
     }
 }
 
-/* Reset animation when panel is closed */
-.overlay:not(.active) #tulip1,
-.overlay:not(.active) #tulip2,
-.overlay:not(.active) #tulip3,
-.overlay:not(.active) #tulip4 {
+/* Reset when panel closed */
+.overlay:not(.active) .tulip-img {
     opacity: 0;
-}
-
-/* Gentle sway on the flowers after appearing */
-.overlay.active .flower {
-    animation: flowerSway 4s ease-in-out 1.2s infinite;
-    transform-origin: bottom center;
-}
-
-@keyframes flowerSway {
-    0%, 100% { transform: rotate(0deg); }
-    25% { transform: rotate(1.5deg); }
-    75% { transform: rotate(-1.5deg); }
 }
 
 /* ========== MESSAGE ========== */
@@ -445,8 +412,7 @@ body {
     }
 
     .bouquet {
-        width: 220px;
-        height: 260px;
+        width: 200px;
     }
 
     .message {
@@ -460,8 +426,7 @@ body {
 
 @media (max-width: 360px) {
     .bouquet {
-        width: 190px;
-        height: 230px;
+        width: 180px;
     }
 
     .title-wrapper {
@@ -473,8 +438,7 @@ body {
 @media (prefers-reduced-motion: reduce) {
     .falling-heart,
     .bg-orb,
-    .btn-shimmer,
-    .flower {
+    .btn-shimmer {
         animation: none !important;
     }
 
