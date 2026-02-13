@@ -15,13 +15,6 @@
     --cream: #fff5f7;
     --gold: #d4a054;
     --gold-light: #f0d48a;
-    --green-stem: #4a7c59;
-    --green-leaf: #5d9e6f;
-    --tulip-red: #e63946;
-    --tulip-pink: #f48fb1;
-    --tulip-magenta: #c2185b;
-    --tulip-coral: #ff6b6b;
-    --tulip-yellow: #ffe066;
     --bg-dark: #1a0a10;
     --bg-mid: #2d0f1e;
     --panel-bg: rgba(255, 245, 247, 0.97);
@@ -189,7 +182,7 @@ body {
     padding: 1.1rem 3rem;
     border: none;
     border-radius: 60px;
-    background: linear-gradient(135deg, var(--rose-deep), var(--rose-mid), var(--tulip-coral));
+    background: linear-gradient(135deg, var(--rose-deep), var(--rose-mid), #ff6b6b);
     background-size: 200% 200%;
     color: #fff;
     font-family: 'Quicksand', sans-serif;
@@ -292,290 +285,76 @@ body {
     text-align: center;
 }
 
-/* ========== CSS TULIP BOUQUET ========== */
+/* ========== SVG TULIP BOUQUET ========== */
 .bouquet {
     position: relative;
-    width: 220px;
-    height: 260px;
-    margin: 0 auto 1.8rem;
+    width: 262px;
+    height: 306px;
+    margin: 0 auto 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-/* Wrapping paper */
-.wrap {
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 160px;
-    height: 110px;
-    background: linear-gradient(135deg, var(--rose-pale), #f8d0dc);
-    border-radius: 0 0 30px 30px;
-    clip-path: polygon(10% 0%, 90% 0%, 100% 100%, 0% 100%);
-    z-index: 5;
-    box-shadow: inset 0 -10px 20px rgba(184, 0, 63, 0.08);
+.bouquet svg {
+    width: 100%;
+    height: auto;
+    max-width: 262px;
+    overflow: visible;
 }
 
-.wrap-bottom {
-    position: absolute;
-    bottom: -4px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 130px;
-    height: 12px;
-    background: var(--rose-light);
-    border-radius: 0 0 20px 20px;
-    z-index: 6;
+/* Hide the stemEnd paths like the original */
+.stemEnd1, .stemEnd2, .stemEnd3, .stemEnd4 {
+    visibility: hidden;
 }
 
-.ribbon {
-    position: absolute;
-    bottom: 80px;
-    width: 30px;
-    height: 50px;
-    z-index: 7;
-    border-radius: 0 0 12px 12px;
+/* Tulip grow-in animation when panel opens */
+.overlay.active #tulip1 {
+    animation: tulipAppear 0.8s ease-out 0.1s both;
+}
+.overlay.active #tulip2 {
+    animation: tulipAppear 0.8s ease-out 0.25s both;
+}
+.overlay.active #tulip3 {
+    animation: tulipAppear 0.8s ease-out 0.4s both;
+}
+.overlay.active #tulip4 {
+    animation: tulipAppear 0.8s ease-out 0.55s both;
 }
 
-.ribbon-left {
-    left: 50px;
-    background: var(--gold);
-    transform: rotate(15deg);
+@keyframes tulipAppear {
+    0% {
+        opacity: 0;
+        transform: translateY(40px) scale(0.7);
+    }
+    60% {
+        opacity: 1;
+        transform: translateY(-5px) scale(1.03);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
 }
 
-.ribbon-right {
-    right: 50px;
-    background: var(--gold-light);
-    transform: rotate(-15deg);
-}
-
-/* Individual tulips */
-.tulip {
-    position: absolute;
-    z-index: 3;
-}
-
-.tulip .stem {
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 5px;
-    background: linear-gradient(to top, var(--green-stem), #6aad7e);
-    border-radius: 3px;
-}
-
-.tulip .leaf {
-    position: absolute;
-    width: 22px;
-    height: 40px;
-    background: var(--green-leaf);
-    border-radius: 50% 50% 50% 0;
-    z-index: 4;
-}
-
-.tulip .leaf.leaf-left {
-    left: -14px;
-    bottom: 40px;
-    transform: rotate(-30deg);
-    border-radius: 50% 50% 0 50%;
-}
-
-.tulip .leaf.leaf-right {
-    right: -14px;
-    bottom: 40px;
-    transform: rotate(30deg);
-    border-radius: 50% 50% 50% 0;
-}
-
-.tulip .flower {
-    position: absolute;
-    top: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 36px;
-    height: 38px;
-}
-
-.tulip .petal {
-    position: absolute;
-    bottom: 0;
-    width: 18px;
-    height: 32px;
-    border-radius: 50% 50% 4px 4px;
-}
-
-.tulip .petal-left {
-    left: 0;
-    transform: rotate(-12deg);
-    transform-origin: bottom center;
-}
-
-.tulip .petal-center {
-    left: 50%;
-    transform: translateX(-50%);
-    height: 35px;
-    width: 16px;
-    z-index: 1;
-}
-
-.tulip .petal-right {
-    right: 0;
-    transform: rotate(12deg);
-    transform-origin: bottom center;
-}
-
-/* Tulip 1 - Red, center tall */
-.tulip-1 {
-    left: 50%;
-    transform: translateX(-50%);
-    bottom: 90px;
-}
-
-.tulip-1 .stem { height: 130px; }
-
-.tulip-1 .petal-left { background: var(--tulip-red); }
-.tulip-1 .petal-center { background: #d32f2f; }
-.tulip-1 .petal-right { background: var(--tulip-red); }
-
-/* Tulip 2 - Pink, left */
-.tulip-2 {
-    left: 30%;
-    transform: translateX(-50%) rotate(-8deg);
-    bottom: 85px;
-}
-
-.tulip-2 .stem { height: 115px; }
-
-.tulip-2 .petal-left { background: var(--tulip-pink); }
-.tulip-2 .petal-center { background: #ec407a; }
-.tulip-2 .petal-right { background: var(--tulip-pink); }
-
-/* Tulip 3 - Magenta, right */
-.tulip-3 {
-    left: 70%;
-    transform: translateX(-50%) rotate(6deg);
-    bottom: 88px;
-}
-
-.tulip-3 .stem { height: 120px; }
-
-.tulip-3 .petal-left { background: var(--tulip-magenta); }
-.tulip-3 .petal-center { background: #ad1457; }
-.tulip-3 .petal-right { background: var(--tulip-magenta); }
-
-/* Tulip 4 - Coral, far left */
-.tulip-4 {
-    left: 18%;
-    transform: translateX(-50%) rotate(-15deg);
-    bottom: 80px;
-}
-
-.tulip-4 .stem { height: 100px; }
-.tulip-4 .flower { width: 30px; height: 32px; }
-.tulip-4 .petal { width: 15px; height: 28px; }
-.tulip-4 .petal-center { width: 14px; height: 30px; }
-
-.tulip-4 .petal-left { background: var(--tulip-coral); }
-.tulip-4 .petal-center { background: #e55757; }
-.tulip-4 .petal-right { background: var(--tulip-coral); }
-
-/* Tulip 5 - Yellow accent, far right */
-.tulip-5 {
-    left: 82%;
-    transform: translateX(-50%) rotate(12deg);
-    bottom: 78px;
-}
-
-.tulip-5 .stem { height: 105px; }
-.tulip-5 .flower { width: 30px; height: 32px; }
-.tulip-5 .petal { width: 15px; height: 28px; }
-.tulip-5 .petal-center { width: 14px; height: 30px; }
-
-.tulip-5 .petal-left { background: var(--tulip-yellow); }
-.tulip-5 .petal-center { background: #fdd835; }
-.tulip-5 .petal-right { background: var(--tulip-yellow); }
-
-/* Bouquet entrance animation */
-.overlay.active .bouquet .tulip {
-    animation: tulipGrow 0.7s ease-out forwards;
+/* Reset animation when panel is closed */
+.overlay:not(.active) #tulip1,
+.overlay:not(.active) #tulip2,
+.overlay:not(.active) #tulip3,
+.overlay:not(.active) #tulip4 {
     opacity: 0;
 }
 
-.overlay.active .tulip-1 { animation-delay: 0.15s; }
-.overlay.active .tulip-2 { animation-delay: 0.25s; }
-.overlay.active .tulip-3 { animation-delay: 0.35s; }
-.overlay.active .tulip-4 { animation-delay: 0.45s; }
-.overlay.active .tulip-5 { animation-delay: 0.55s; }
-
-@keyframes tulipGrow {
-    0% {
-        opacity: 0;
-        transform: translateX(-50%) scale(0.3) translateY(30px);
-    }
-    100% {
-        opacity: 1;
-        transform: translateX(-50%) scale(1) translateY(0);
-    }
+/* Gentle sway on the flowers after appearing */
+.overlay.active .flower {
+    animation: flowerSway 4s ease-in-out 1.2s infinite;
+    transform-origin: bottom center;
 }
 
-.overlay.active .tulip-2 {
-    animation-name: tulipGrow2;
-}
-
-@keyframes tulipGrow2 {
-    0% {
-        opacity: 0;
-        transform: translateX(-50%) rotate(-8deg) scale(0.3) translateY(30px);
-    }
-    100% {
-        opacity: 1;
-        transform: translateX(-50%) rotate(-8deg) scale(1) translateY(0);
-    }
-}
-
-.overlay.active .tulip-3 {
-    animation-name: tulipGrow3;
-}
-
-@keyframes tulipGrow3 {
-    0% {
-        opacity: 0;
-        transform: translateX(-50%) rotate(6deg) scale(0.3) translateY(30px);
-    }
-    100% {
-        opacity: 1;
-        transform: translateX(-50%) rotate(6deg) scale(1) translateY(0);
-    }
-}
-
-.overlay.active .tulip-4 {
-    animation-name: tulipGrow4;
-}
-
-@keyframes tulipGrow4 {
-    0% {
-        opacity: 0;
-        transform: translateX(-50%) rotate(-15deg) scale(0.3) translateY(30px);
-    }
-    100% {
-        opacity: 1;
-        transform: translateX(-50%) rotate(-15deg) scale(1) translateY(0);
-    }
-}
-
-.overlay.active .tulip-5 {
-    animation-name: tulipGrow5;
-}
-
-@keyframes tulipGrow5 {
-    0% {
-        opacity: 0;
-        transform: translateX(-50%) rotate(12deg) scale(0.3) translateY(30px);
-    }
-    100% {
-        opacity: 1;
-        transform: translateX(-50%) rotate(12deg) scale(1) translateY(0);
-    }
+@keyframes flowerSway {
+    0%, 100% { transform: rotate(0deg); }
+    25% { transform: rotate(1.5deg); }
+    75% { transform: rotate(-1.5deg); }
 }
 
 /* ========== MESSAGE ========== */
@@ -589,6 +368,7 @@ body {
     padding: 0 0.5rem;
     opacity: 0;
     animation: none;
+    min-height: 3.5em;
 }
 
 .overlay.active .message {
@@ -665,8 +445,8 @@ body {
     }
 
     .bouquet {
-        width: 190px;
-        height: 230px;
+        width: 220px;
+        height: 260px;
     }
 
     .message {
@@ -680,8 +460,8 @@ body {
 
 @media (max-width: 360px) {
     .bouquet {
-        width: 170px;
-        height: 210px;
+        width: 190px;
+        height: 230px;
     }
 
     .title-wrapper {
@@ -693,7 +473,8 @@ body {
 @media (prefers-reduced-motion: reduce) {
     .falling-heart,
     .bg-orb,
-    .btn-shimmer {
+    .btn-shimmer,
+    .flower {
         animation: none !important;
     }
 
