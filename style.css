@@ -288,7 +288,7 @@ body {
 /* ========== TULIP BOUQUET IMAGE ========== */
 .bouquet {
     position: relative;
-    width: 240px;
+    width: 168px;
     margin: 0 auto 1.5rem;
     display: flex;
     align-items: center;
@@ -298,7 +298,7 @@ body {
 .tulip-img {
     width: 100%;
     height: auto;
-    max-width: 240px;
+    max-width: 168px;
     border-radius: 12px;
     filter: drop-shadow(0 8px 24px rgba(120, 60, 140, 0.35));
 }
@@ -412,7 +412,7 @@ body {
     }
 
     .bouquet {
-        width: 200px;
+        width: 140px;
     }
 
     .message {
@@ -426,7 +426,7 @@ body {
 
 @media (max-width: 360px) {
     .bouquet {
-        width: 180px;
+        width: 126px;
     }
 
     .title-wrapper {
