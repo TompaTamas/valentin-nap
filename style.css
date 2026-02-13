@@ -285,44 +285,6 @@ body {
     text-align: center;
 }
 
-/* ========== TULIP BOUQUET IMAGE ========== */
-.bouquet {
-    position: relative;
-    width: 168px;
-    margin: 0 auto 1.5rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.tulip-img {
-    width: 100%;
-    height: auto;
-    max-width: 168px;
-    border-radius: 12px;
-    filter: drop-shadow(0 8px 24px rgba(120, 60, 140, 0.35));
-}
-
-/* Grow-in animation when panel opens */
-.overlay.active .tulip-img {
-    animation: tulipAppear 0.9s cubic-bezier(0.34, 1.56, 0.64, 1) 0.15s both;
-}
-
-@keyframes tulipAppear {
-    0% {
-        opacity: 0;
-        transform: scale(0.5) translateY(30px);
-    }
-    100% {
-        opacity: 1;
-        transform: scale(1) translateY(0);
-    }
-}
-
-/* Reset when panel closed */
-.overlay:not(.active) .tulip-img {
-    opacity: 0;
-}
 
 /* ========== MESSAGE ========== */
 .message {
