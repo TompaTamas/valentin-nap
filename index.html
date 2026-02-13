@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valentin Napi Meglepetés 💕</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Falling hearts container -->
+    <div class="hearts-container" id="heartsContainer"></div>
+
+    <!-- Soft glow orbs background -->
+    <div class="bg-orb orb-1"></div>
+    <div class="bg-orb orb-2"></div>
+    <div class="bg-orb orb-3"></div>
+
+    <!-- Main content -->
+    <main class="main-content">
+        <div class="title-wrapper">
+            <p class="subtitle">Csak Neked</p>
+            <h1 class="title">Boldog Valentin Napot! 💗</h1>
+        </div>
+        <button class="surprise-btn" id="surpriseBtn">
+            <span class="btn-text">MEGLEPETÉS 💝</span>
+            <span class="btn-shimmer"></span>
+        </button>
+    </main>
+
+    <!-- Surprise Panel Overlay -->
+    <div class="overlay" id="overlay">
+        <div class="panel" id="panel">
+            <div class="panel-inner">
+                <!-- CSS Tulip Bouquet -->
+                <div class="bouquet">
+                    <div class="ribbon ribbon-left"></div>
+                    <div class="ribbon ribbon-right"></div>
+                    <div class="wrap"></div>
+                    <div class="wrap-bottom"></div>
+
+                    <div class="tulip tulip-1">
+                        <div class="stem"></div>
+                        <div class="leaf leaf-left"></div>
+                        <div class="flower">
+                            <div class="petal petal-left"></div>
+                            <div class="petal petal-center"></div>
+                            <div class="petal petal-right"></div>
+                        </div>
+                    </div>
+
+                    <div class="tulip tulip-2">
+                        <div class="stem"></div>
+                        <div class="leaf leaf-right"></div>
+                        <div class="flower">
+                            <div class="petal petal-left"></div>
+                            <div class="petal petal-center"></div>
+                            <div class="petal petal-right"></div>
+                        </div>
+                    </div>
+
+                    <div class="tulip tulip-3">
+                        <div class="stem"></div>
+                        <div class="leaf leaf-left"></div>
+                        <div class="leaf leaf-right"></div>
+                        <div class="flower">
+                            <div class="petal petal-left"></div>
+                            <div class="petal petal-center"></div>
+                            <div class="petal petal-right"></div>
+                        </div>
+                    </div>
+
+                    <div class="tulip tulip-4">
+                        <div class="stem"></div>
+                        <div class="leaf leaf-left"></div>
+                        <div class="flower">
+                            <div class="petal petal-left"></div>
+                            <div class="petal petal-center"></div>
+                            <div class="petal petal-right"></div>
+                        </div>
+                    </div>
+
+                    <div class="tulip tulip-5">
+                        <div class="stem"></div>
+                        <div class="leaf leaf-right"></div>
+                        <div class="flower">
+                            <div class="petal petal-left"></div>
+                            <div class="petal petal-center"></div>
+                            <div class="petal petal-right"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <p class="message" id="message"></p>
+
+                <button class="close-btn" id="closeBtn">Bezárom 🥰</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
